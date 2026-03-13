@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+const API = process.env.NEXT_PUBLIC_API_URL;
+
 interface Issue {
   id: string;
   title: string;
@@ -47,7 +49,7 @@ export default function DashboardPage() {
 
   const fetchIssues = async (token: string) => {
     try {
-      const res = await fetch('http://localhost:4000/api/issues', {
+      const res = await fetch(`${API}/api/issues`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -62,7 +64,7 @@ export default function DashboardPage() {
   const createIssue = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:4000/api/issues', {
+      const res = await fetch(`${API}/api/issues`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
