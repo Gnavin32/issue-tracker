@@ -1,9 +1,12 @@
 {
-  "name": "issue-tracker",
+  "name": "issue-tracker-app",
   "version": "1.0.0",
   "scripts": {
     "build": "cd backend && npm install && npm run build",
     "start": "cd backend && node dist/index.js"
+  },
+  "engines": {
+    "node": "18"
   }
 }
 ```
@@ -12,11 +15,7 @@ Press `Ctrl+S`. Then run:
 ```
 cd C:\Users\HP\issue-tracker
 git add .
-git commit -m "fix package.json"
+git commit -m "fix root package.json"
 git push
-```
-
-Then:
-```
 cd backend
 railway up
