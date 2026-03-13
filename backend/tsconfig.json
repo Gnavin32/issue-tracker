@@ -14,13 +14,3 @@
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "prisma", "prisma.config.ts"]
 }
-```
-
-Press `Ctrl+S`. Then run:
-```
-cd C:\Users\HP\issue-tracker
-git add .
-git commit -m "fix tsconfig"
-git push
-cd backend
-railway up

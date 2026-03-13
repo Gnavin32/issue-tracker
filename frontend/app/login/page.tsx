@@ -13,7 +13,7 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('http://localhost:4000/api/auth/login', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -38,13 +38,11 @@ export default function LoginPage() {
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold text-gray-800 mb-2">Issue Tracker</h1>
         <p className="text-gray-500 mb-6">Sign in to your account</p>
-
         {error && (
           <div className="bg-red-50 text-red-600 p-3 rounded mb-4 text-sm">
             {error}
           </div>
         )}
-
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
           <input
@@ -55,7 +53,6 @@ export default function LoginPage() {
             placeholder="john@acme.com"
           />
         </div>
-
         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
           <input
@@ -66,7 +63,6 @@ export default function LoginPage() {
             placeholder="••••••••"
           />
         </div>
-
         <button
           onClick={handleLogin}
           disabled={loading}
@@ -74,7 +70,6 @@ export default function LoginPage() {
         >
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
-
         <p className="text-center text-sm text-gray-500 mt-4">
           No account?{' '}
           <a href="/register" className="text-blue-600 hover:underline">Register</a>
