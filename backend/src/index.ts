@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://issue-tracker-chi-black.vercel.app'],
   credentials: true
 }));
 app.use(express.json());
@@ -23,7 +23,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/issues', issueRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server running on port 4000`);
+  console.log(`Server running on port ${PORT}`);
 });
 
 export default app;
